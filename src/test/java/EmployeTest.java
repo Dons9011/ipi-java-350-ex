@@ -1,4 +1,4 @@
-package com.ipiecoles.java.java350.model;
+package java;
 
 import java.time.LocalDate;
 
@@ -6,6 +6,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+import com.ipiecoles.java.java350.model.Employe;
 
 public class EmployeTest {
 	
