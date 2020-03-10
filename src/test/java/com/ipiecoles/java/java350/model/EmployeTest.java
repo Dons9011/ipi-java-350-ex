@@ -1,4 +1,4 @@
-package java;
+package com.ipiecoles.java.java350.model;
 
 import java.time.LocalDate;
 
