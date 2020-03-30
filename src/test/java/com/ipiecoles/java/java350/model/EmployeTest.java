@@ -38,9 +38,7 @@ public class EmployeTest {
 	@ParameterizedTest
 	@CsvSource({
 		"1,'T12345', 0, 1.0, 1000.0"
-//		"1,'T12345', 0, 0.5, 500.0",
-//		"1,'M12345', 0, 1.0, 1700.0",
-//		"2,'T12345', 0, 1.0, 2300.0",
+
 
 	})
 	public void testGetPrimeAnnuelle(Integer performance, String matricule, Integer nbAnneesAnciennete, Double tempsPartiel, Double prime) {
@@ -59,6 +57,56 @@ public class EmployeTest {
 		Assertions.assertThat(primeCalculee).isEqualTo(prime);
 	}
 	
+	
+
+	@Test
+	public void testAugmenterSalaireAvecSalaireNull(){
+		
+		//given 
+		Double pourcentage = 0.654;
+		Employe employe = new Employe();
+		employe.setSalaire(null);
+		employe.augmenterSalaire(pourcentage);
+
+		//When
+		Double salaire = employe.getSalaire();
+		
+		//Then 
+		Assertions.assertThat(salaire).isEqualTo(null);
+	}
+	
+	
+	@Test
+	public void testAugmenterSalaireAvec2Null(){
+		
+		//given 
+		Double pourcentage = null;
+		Employe employe = new Employe();
+		employe.setSalaire(null);
+		employe.augmenterSalaire(pourcentage);
+
+		//When
+		Double salaire = employe.getSalaire();
+		
+		//Then 
+		Assertions.assertThat(salaire).isEqualTo(null);
+	}
+	
+	@Test
+	public void testAugmenterSalaireAvecPourcentageNegatif(){
+		
+		//given 
+		Double pourcentage = -0.654;
+		Employe employe = new Employe();
+		employe.setSalaire(2000.9);
+		employe.augmenterSalaire(pourcentage);
+
+		//When
+		Double salaire = employe.getSalaire();
+		
+		//Then 
+		Assertions.assertThat(salaire).isEqualTo(2000.9);
+	}
 	
 	
 	
